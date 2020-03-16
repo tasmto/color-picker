@@ -1,0 +1,43 @@
+@mixin gridCenter () {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+#app-container--outer {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100px auto 50px;
+    >* {
+        grid-column: 1/-1;
+    }
+    .saved-colors-block--outer {
+        grid-row: 1/2;
+        @include gridCenter();
+    }
+    .save-set-btn {
+        grid-row: -2/-1;
+        @include gridCenter();
+        align-items: end;
+    }
+    .main-color-block-area {
+        grid-row: 1/-1;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr;
+        .color-block {
+            background-color: red;
+            @include gridCenter();
+        }
+    }
+}
